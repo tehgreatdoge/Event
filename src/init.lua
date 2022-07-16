@@ -15,12 +15,12 @@ function Event:Connect(callback)
 	table.insert(self.connections,newConnection)
 	return newConnection
 end
-function Event:RemoveEvent(event)
+function Event:RemoveEvent(event)	--Alternative methods need testing for better performance
 	table.remove(self.connections,table.find(self.connections,event))
 end
 function Event:Fire()
 	for k,v in pairs(self.connections) do
-		v.callback()
+		task.spawn(v.callback)
 	end
 end
 

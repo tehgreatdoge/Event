@@ -1,7 +1,7 @@
 local Connection = {}
 Connection.__index = Connection
 
-function Connection.new(callback,disconnectFunct)
+function Connection.new(callback,disconnectFunct)	--This code looks atrocious and probably isn't optimal.
 	local newConnection = {}
 	newConnection.callback = callback
 	newConnection.disconnectFunction = disconnectFunct
